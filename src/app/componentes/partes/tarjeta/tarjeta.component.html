@@ -1,0 +1,31 @@
+<div class="example-2 card tarjeta mt-2">
+  <div class="wrapper" [style.background-image]="items.images | domseguro">
+    <div class="header">
+      <div class="date" *ngIf="items.type ==='artist'">
+        <span>{{items.followers.total | number}}</span>
+      </div>
+      <div class="date" *ngIf="items.type !=='artist'">
+        <span class="day">{{items.release_date | date:"dd"}} </span>
+        <span class="month">{{items.release_date | date:"MMMM"}} </span>
+        <span class="year">{{items.release_date | date:"yyyy"}}</span>
+      </div>
+      <ul class="menu-content">
+        <li class="canciones">{{items.total_tracks}} <i class="fas fa-music"></i></li>
+      </ul>
+    </div>
+    <div class="data" *ngIf="items.type !=='artist'">
+      <div class="content">
+        <span class="author">{{items.type | uppercase}}</span>
+        <h1 class="title">{{items.name}}</h1>
+        <a *ngFor="let artista of items.artists" [routerLink]="[ '/artista', artista.id ]">{{artista.name}} <br></a>
+      </div>
+    </div>
+    <div class="data" *ngIf="items.type ==='artist'">
+        <div class="content">
+          <span class="author">{{items.type | uppercase}}</span>
+          <h1 class="title"><a [routerLink]="[ '/artista', items.id ]">{{items.name}}</a></h1>
+          <p class="" *ngFor="let generos of items.genres">{{generos}}</p>
+        </div>
+      </div>
+  </div>
+</div>

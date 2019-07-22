@@ -1,0 +1,12 @@
+<div class="container">
+
+  <input #nombreArtista (keyup)="buscarArtista(nombreArtista.value)" type="text" class="form-control" placeholder="Nombre Artista">
+
+  <div *ngIf="cargando; else sincarga" class="text-center animated fadeIn mt-2">
+    <i class="fas fa-spinner fa-spin fa-10x"></i>
+  </div>
+  <ng-template #sincarga>
+    <div class="card-columns animated fadeIn">
+        <app-tarjeta [items]="artista" *ngFor="let artista of artistas"></app-tarjeta> 
+    </div>
+  </ng-template>

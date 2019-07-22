@@ -1,0 +1,10 @@
+<div class="container">
+    <div *ngIf="cargando" class="text-center animated fadeIn">
+        <i class="fas fa-spinner fa-spin fa-10x"></i>
+    </div>
+    <div class="card-columns animated fadeIn">    
+    <app-tarjeta [items]="lanzamiento" *ngFor="let lanzamiento of lanzamientos"></app-tarjeta>    
+    </div>
+</div>
+    
+
